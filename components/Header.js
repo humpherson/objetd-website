@@ -1,37 +1,30 @@
 // components/Header.js
 import Link from "next/link";
-import { FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
+import Nav from "./Nav";
 
 export default function Header() {
   return (
     <header className="p-8 bg-gray-900 border-b border-red-500 text-gray-400">
-      <div className="container mx-auto flex justify-between">
-        <div className="container mx-auto flex justify-between pt-3 pb-0">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Name and Image */}
+        <div className="flex items-center space-x-4">
+          <Image
+            src="/me.jpg" // Path to your picture in the public directory
+            alt="Dan Humpherson"
+            width={40} // Set width as desired
+            height={40} // Set height as desired
+            className="rounded-full" // Adds rounded style for a circular profile picture
+          />
           <Link href="/" className="text-xl font-bold">
-            Dan Humpherson
+            {/* Display full name on larger screens, short name on small screens */}
+            <span className="hidden sm:inline">Dan Humpherson</span>
+            <span className="sm:hidden">Dan H.</span>
           </Link>
         </div>
-        <nav className="flex space-x-6 text-sm mb-4 sm:mb-4 pt-4">
-          <Link href="/work" className="hover:underline">
-            Work
-          </Link>
-          <Link href="/blog" className="hover:underline">
-            Blog
-          </Link>
-          <Link href="/portfolio" className="hover:underline">
-            Portfolio
-          </Link>
-          <span className="mx-2 text-gray-500">|</span>
-          <a
-            href="https://www.linkedin.com/in/your-profile" // Replace with your LinkedIn profile link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-            title="LinkedIn - Dan Humpherson"
-          >
-            <FaLinkedin size={20} />
-          </a>
-        </nav>
+
+        {/* Navigation */}
+        <Nav />
       </div>
     </header>
   );

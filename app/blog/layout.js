@@ -1,9 +1,11 @@
-// app/work/blog.js
+// app/blog/layout.js
+
+export const metadata = {
+  title: "Blog | Dan Humpherson",
+  description:
+    "Read my latest blog posts on design, development, and technology.",
+};
+
 export default function BlogLayout({ children }) {
-  return (
-    <section className="blog-layout bg-gray-50 p-6">
-      <h1 className="text-3xl font-bold">Blog</h1>
-      {children}
-    </section>
-  );
+  return <>{children}</>;
 }

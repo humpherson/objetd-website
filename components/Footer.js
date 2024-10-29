@@ -22,14 +22,17 @@ export default function Footer() {
             <FaLinkedin size={20} />
           </a>
           <span className="mx-2 text-gray-500">|</span>
-          <Link href="/work" className="hover:text-white">
-            Work
+          <Link href="/" className="hover:text-white">
+            Home
           </Link>
-          <Link href="/blog" className="hover:text-white">
-            Blog
+          <Link href="/experience" className="hover:text-white">
+            Experience
           </Link>
           <Link href="/portfolio" className="hover:text-white">
             Portfolio
+          </Link>
+          <Link href="/blog" className="hover:text-white">
+            Blog
           </Link>
         </nav>
         <a

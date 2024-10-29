@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
 
         {/* Page Structure */}
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
