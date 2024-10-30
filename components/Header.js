@@ -5,10 +5,13 @@ import Nav from "./Nav";
 
 export default function Header() {
   return (
-    <header className="p-8 shadow-md bg-white-900">
-      <div className="container mx-auto flex justify-between items-center w-full max-w-5xl mx-auto">
+    <header className="p-8 sm:p-8 shadow-md bg-white-900">
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center w-full max-w-5xl">
         {/* Name and Image */}
-        <div id="me" className="flex items-center space-x-2 sm:space-x-4">
+        <div
+          id="me"
+          className="flex items-center space-x-2 sm:space-x-4 mb-8 sm:mb-0"
+        >
           <Image
             src="/me.jpg" // Path to your picture in the public directory
             alt="Dan Humpherson"
@@ -18,16 +21,18 @@ export default function Header() {
           />
           <Link
             href="/"
-            className="text-xl border-b border-b-2 border-white hover:border-teal-600 text-slate-600 font-medium hover:text-teal-600"
+            className="text-xl border-b-2 border-white hover:border-teal-600 text-slate-600 font-medium hover:text-teal-600"
           >
             {/* Display full name on larger screens, short name on small screens */}
             <span className="hidden sm:inline">Dan Humpherson</span>
-            <span className="sm:hidden">Dan H.</span>
+            <span className="sm:hidden">Dan Humpherson</span>
           </Link>
         </div>
 
         {/* Navigation */}
-        <Nav />
+        <div className="w-full sm:w-auto">
+          <Nav />
+        </div>
       </div>
     </header>
   );
