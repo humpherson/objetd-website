@@ -1,3 +1,5 @@
+const { Lexend } = require("next/font/google");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,6 +9,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: "var(--font-inter)",
+        roboto: "var(--font-roboto)",
+        lexend: "var(--font-lexend)",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

@@ -1,220 +1,201 @@
 // app/experience/page.js
 import Link from "next/link";
 import Image from "next/image";
-
-const workProjects = [
-  {
-    id: 1,
-    title: "Project Management System Development",
-    description:
-      "Developed a project management tool to streamline workflows and improve team collaboration.",
-    slug: "project-management-system-development",
-  },
-  {
-    id: 2,
-    title: "UX/UI Redesign for SaaS Application",
-    description:
-      "Redesigned the user interface for a SaaS platform, improving user engagement and satisfaction.",
-    slug: "ux-ui-redesign-saas-application",
-  },
-  {
-    id: 3,
-    title: "Custom Analytics Dashboard",
-    description:
-      "Created a custom analytics dashboard to provide actionable insights for business stakeholders.",
-    slug: "custom-analytics-dashboard",
-  },
-];
-
-const skills = [
-  "UX/UI Design",
-  "Frontend Development (React, Next.js, Tailwind CSS)",
-  "Data Visualization and Analytics",
-  "Project Management and Collaboration",
-];
-
-const featuredPortfolioItems = [
-  {
-    id: 1,
-    title: "E-Commerce Website Redesign",
-    description: "Enhanced UX for a large e-commerce platform.",
-    slug: "ecommerce-website-redesign",
-  },
-  {
-    id: 2,
-    title: "Personal Blog Platform",
-    description: "Developed a custom blogging platform with CMS features.",
-    slug: "personal-blog-platform",
-  },
-  {
-    id: 3,
-    title: "Analytics Dashboard",
-    description:
-      "Built a data visualization dashboard for business intelligence.",
-    slug: "analytics-dashboard",
-  },
-];
-
-const technologies = [
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "JavaScript",
-  "TypeScript",
-  "HTML5",
-  "CSS3",
-  "Node.js",
-  "Express",
-  "GraphQL",
-  "REST APIs",
-  "MongoDB",
-  "MySQL",
-  "AWS",
-  "Firebase",
-  "Git",
-  "Figma",
-  "Adobe XD",
-  // Add more technologies as needed
-];
-
-const workExperience = [
-  {
-    company: "Tech Solutions",
-    logo: "/images/tech-solutions-logo.png",
-    roles: [
-      {
-        title: "Senior UX Designer",
-        dateRange: "Jan 2018 - Present",
-        duration: "3 years, 10 months",
-        description:
-          "Led the UX/UI redesign for a major SaaS platform, improving user engagement by 20%.",
-      },
-      {
-        title: "UX Designer",
-        dateRange: "May 2016 - Jan 2018",
-        duration: "1 year, 8 months",
-        description:
-          "Collaborated on design systems and improved usability for cross-platform applications.",
-      },
-    ],
-  },
-  {
-    company: "Web Innovations",
-    logo: "/images/web-innovations-logo.png",
-    roles: [
-      {
-        title: "Frontend Developer",
-        dateRange: "May 2015 - Dec 2017",
-        duration: "2 years, 7 months",
-        description:
-          "Developed responsive web applications and optimized performance for faster loading times.",
-      },
-    ],
-  },
-];
+import workExperienceData from "./workExperienceData";
+import skillsData from "./skillsData";
+import technologiesData from "./technologiesData";
+import featuredPortfolioItemsData from "./featuredPortfolioItemsData";
 
 export default function ExperiencePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-3xl font-bold text-center mb-8">Experience</h1>
+    <main>
+      {/* Opening */}
+      <div className="p-8 sm:p-20 bg-teal-500 shadow-md">
+        <div className="flex flex-col gap-8 items-start sm:items-start w-full max-w-5xl mx-auto">
+          <h1 className="text-5xl sm:text-6xl mb-2 sm:mb-8 text-white">
+            Experience
+          </h1>
+          <section className="w-full max-w-3xl">
+            <h2 className="text-3xl font-bold mb-4 text-gray-100">About Me</h2>
+            <p className="text-gray-200 pb-4">
+              I’m Dan Humpherson, a seasoned and affable solution leader, I
+              bring a proven ability to communicate effectively with customers,
+              colleagues, and stakeholders at all levels, earning credibility
+              through my actions and results. I excel as a collaborative team
+              player, capable of delivering innovative solutions even in
+              complex, fast-paced, or less-than-ideal conditions.
+            </p>
+            <p className="text-gray-200 pb-4">
+              My enthusiasm for achieving exceptional outcomes is matched by a
+              meticulous attention to detail, ensuring that no aspect of a
+              project is overlooked. With strong emotional intelligence, I build
+              trusted relationships and foster a supportive, high-performance
+              culture, whether working independently or leading cross-functional
+              and remote teams.
+            </p>
+            <p className="text-gray-200 pb-4">
+              I thrive in both independent roles and team-driven environments,
+              consistently meeting tight deadlines and delivering results. My
+              ability to manage global teams, including close collaboration with
+              remote teams, is underpinned by a flexible and adaptable approach.
+            </p>
+            <p className="text-gray-200 pb-4">
+              As a lifelong learner, I am committed to continually broadening my
+              knowledge and skillset to stay at the forefront of evolving
+              technologies and business challenges. Happiest when empowered to
+              lead under my own direction, I am fully confident in providing
+              strategic solutions that align with business goals, while also
+              leveraging support when necessary to ensure optimal outcomes.
+            </p>
+          </section>
+        </div>
+      </div>
 
-        {/* About Me */}
-        <section className="w-full max-w-3xl">
-          <h2 className="text-2xl font-bold mb-4">About Me</h2>
-          <p className="text-gray-700">
-            I’m Dan Humpherson, a passionate developer and designer with a
-            strong focus on user experience and innovative solutions. With years
-            of experience in design and development, I strive to create
-            impactful digital products.
-          </p>
-        </section>
+      <div className="min-h-screen p-8 sm:p-20 pb-20">
+        <div className="flex flex-col gap-8 items-start sm:items-start w-full max-w-5xl mx-auto">
+          {/* Work Experience with Timeline */}
+          <section className="w-full max-w-3xl mb-8">
+            <h2 className="text-3xl font-bold mb-4 text-slate-600">
+              Work Experience
+            </h2>
+            <div className="space-y-8">
+              {workExperienceData.map((company, index) => (
+                <div key={index} className="flex items-start space-x-4">
+                  {/* Company Logo */}
+                  <Image
+                    src={company.logo}
+                    alt={`${company.company} logo`}
+                    width={50}
+                    height={50}
+                    className="rounded-full border"
+                  />
 
-        {/* Skills */}
-        <section className="w-full max-w-3xl">
-          <h2 className="text-2xl font-bold mb-4">Skills</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-2">
-            {skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
-        </section>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-teal-500 pt-2">
+                      {company.company}
+                    </h3>
+                    <div className="space-y-6 mt-4">
+                      {company.roles.map((role, roleIndex) => (
+                        <div
+                          key={roleIndex}
+                          className="border-l-4 pl-4 border-teal-600 border-opacity-25 pb-2"
+                        >
+                          <div className="flex items-center justify-between">
+                            <h4 className="text-lg font-medium text-slate-600 pb-1">
+                              {role.title}
+                            </h4>
+                            <span className="text-sm text-slate-500">
+                              {role.dateRange}
+                            </span>
+                          </div>
+                          <p className="text-sm text-slate-500">
+                            {role.duration}
+                          </p>
 
-        {/* Work Experience with Timeline */}
-        <section className="w-full max-w-3xl">
-          <h2 className="text-2xl font-bold mb-4">Work Experience</h2>
-          <div className="space-y-8">
-            {workExperience.map((company, index) => (
-              <div key={index} className="flex items-start space-x-4">
-                {/* Company Logo */}
-                <Image
-                  src={company.logo}
-                  alt={`${company.company} logo`}
-                  width={50}
-                  height={50}
-                  className="rounded-full border"
-                />
-
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold">{company.company}</h3>
-                  <div className="space-y-6 mt-4">
-                    {company.roles.map((role, roleIndex) => (
-                      <div
-                        key={roleIndex}
-                        className="border-l-4 pl-4 border-blue-500"
-                      >
-                        <div className="flex items-center justify-between">
-                          <h4 className="text-lg font-bold">{role.title}</h4>
-                          <span className="text-sm text-gray-500">
-                            {role.dateRange}
-                          </span>
+                          {/* Render each line of the description as a separate paragraph */}
+                          {role.description
+                            .split(" / ")
+                            .map((line, lineIndex) => (
+                              <p
+                                key={lineIndex}
+                                className="text-slate-600 mt-2 text-sm"
+                              >
+                                {line.trim()}
+                              </p>
+                            ))}
                         </div>
-                        <p className="text-sm text-gray-400 italic">
-                          {role.duration}
-                        </p>
-                        <p className="text-gray-700 mt-2">{role.description}</p>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
-        {/* Technology - Tag Cloud */}
-        <section className="w-full max-w-3xl">
-          <h2 className="text-2xl font-bold mb-4">Technology</h2>
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </section>
+          {/* Technology - Tag Cloud */}
+          <section className="w-full max-w-3xl mb-8">
+            <h2 className="text-3xl font-bold mb-6 text-slate-600">
+              Technology & Tools
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {technologiesData
+                .slice() // Create a shallow copy to avoid mutating the original array
+                .sort((a, b) => a.localeCompare(b)) // Sort alphabetically (A - Z)
+                .map((tech, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-2 border-2 border-teal-600 border-opacity-25 bg-teal-50 text-teal-500 rounded-full text-sm font-semibold"
+                  >
+                    {tech}
+                  </span>
+                ))}
+            </div>
+          </section>
 
-        {/* Featured Portfolio Items */}
-        <section className="w-full max-w-3xl">
-          <h2 className="text-2xl font-bold mb-4">Featured Portfolio Items</h2>
-          <ul className="space-y-6">
-            {featuredPortfolioItems.map((item) => (
-              <li key={item.id} className="border-b pb-4 mb-4">
-                <Link
-                  href={`/portfolio/${item.slug}`}
-                  className="text-xl font-semibold text-blue-600 hover:underline"
+          <section className="w-full max-w-5xl mb-8">
+            <h2 className="text-3xl font-bold mb-6 text-slate-600">
+              Skills & Responsibilities
+            </h2>
+
+            {/* Container for two-column layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+              {skillsData.map((skillsCategory, index) => (
+                <div key={index} className="flex flex-col h-full">
+                  {/* Category Header */}
+                  <h3 className="text-xl font-bold text-teal-500 mb-4">
+                    {skillsCategory.category}
+                  </h3>
+
+                  {/* Skills List */}
+                  <ul className="list-disc list-aligned space-y-2 pl-4">
+                    {skillsCategory.skills.map((skill, skillIndex) => (
+                      <li key={skillIndex} className="text-slate-600 text-sm">
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Featured Portfolio Items */}
+          <section className="w-full max-w-3xl">
+            <h2 className="text-3xl font-bold mb-6 text-slate-600">
+              Featured Portfolio Items
+            </h2>
+
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 w-full">
+              {featuredPortfolioItemsData.map((project) => (
+                <div
+                  key={project.id}
+                  className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
                 >
-                  {item.title}
-                </Link>
-                <p className="text-gray-700 mt-2">{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </main>
-    </div>
+                  <Link href={`/portfolio/${project.slug}`}>
+                    {/* Thumbnail */}
+                    <Image
+                      src={project.thumbnail}
+                      alt={project.title}
+                      width={300}
+                      height={200}
+                      className="w-full h-48 object-cover"
+                    />
+                    {/* Card Content */}
+                    <div className="p-4">
+                      <h3 className="text-xl font-bold text-blue-600 hover:underline">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-700 mt-2 text-sm">
+                        {project.description}
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   );
 }
