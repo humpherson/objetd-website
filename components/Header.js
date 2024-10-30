@@ -8,10 +8,7 @@ export default function Header() {
     <header className="p-8 sm:p-8 shadow-md bg-white-900">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center w-full max-w-5xl">
         {/* Name and Image */}
-        <div
-          id="me"
-          className="flex items-center space-x-2 sm:space-x-4 mb-8 sm:mb-0"
-        >
+        <div id="me" className="flex items-center space-x-4 mb-8 sm:mb-0">
           <Image
             src="/me.jpg" // Path to your picture in the public directory
             alt="Dan Humpherson"
