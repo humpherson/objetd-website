@@ -4,12 +4,12 @@ import Image from "next/image";
 import workExperienceData from "./workExperienceData";
 import skillsData from "./skillsData";
 import technologiesData from "./technologiesData";
-import featuredPortfolioItemsData from "./featuredPortfolioItemsData";
+import recentProjectData from "./recentProjectData";
+import { FaDownload } from "react-icons/fa";
 
 export default function ExperiencePage() {
   return (
     <main>
-      {/* Opening */}
       <div className="p-8 sm:p-20 bg-teal-500 shadow-md">
         <div className="flex flex-col gap-8 items-start sm:items-start w-full max-w-5xl mx-auto">
           <h1 className="text-5xl sm:text-6xl mb-2 sm:mb-8 text-white">
@@ -47,21 +47,29 @@ export default function ExperiencePage() {
               strategic solutions that align with business goals, while also
               leveraging support when necessary to ensure optimal outcomes.
             </p>
+            <div className="mt-6">
+              <a
+                href="/documents/Dan_Humpherson_CV_Latest.pdf"
+                download
+                className="mb-4 sm:mb-0 inline-flex items-center px-5 py-3 bg-white text-slate-700 font-semibold rounded-full shadow-md hover:bg-gray-100 transition duration-200"
+              >
+                <FaDownload className="mr-2" />
+                Download CV
+              </a>
+            </div>
           </section>
         </div>
       </div>
 
       <div className="min-h-screen p-8 sm:p-20 pb-20">
         <div className="flex flex-col gap-8 items-start sm:items-start w-full max-w-5xl mx-auto">
-          {/* Work Experience with Timeline */}
           <section className="w-full max-w-3xl mb-8">
-            <h2 className="text-3xl font-bold mb-4 text-slate-600">
+            <h2 className="text-3xl font-bold mb-2 sm:mb-8 text-slate-600">
               Work Experience
             </h2>
             <div className="space-y-8">
               {workExperienceData.map((company, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  {/* Company Logo */}
                   <Image
                     src={company.logo}
                     alt={`${company.company} logo`}
@@ -69,7 +77,6 @@ export default function ExperiencePage() {
                     height={50}
                     className="rounded-full border"
                   />
-
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-teal-500 pt-2">
                       {company.company}
@@ -91,8 +98,6 @@ export default function ExperiencePage() {
                           <p className="text-sm text-slate-500">
                             {role.duration}
                           </p>
-
-                          {/* Render each line of the description as a separate paragraph */}
                           {role.description
                             .split(" / ")
                             .map((line, lineIndex) => (
@@ -112,15 +117,40 @@ export default function ExperiencePage() {
             </div>
           </section>
 
-          {/* Technology - Tag Cloud */}
+          <section className="w-full max-w-3xl mb-6">
+            <h2 className="text-3xl font-bold mb-4 text-slate-600">
+              Education
+            </h2>
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-bold text-teal-500 pt-2">
+                Hamstead Hall School
+              </h3>
+              <span className="text-sm text-slate-500">
+                Sep 1995 - Jul 2000
+              </span>
+            </div>
+            <div className="space-y-6 mt-4">
+              <div className="pb-1 border-l-4 pl-4 border-teal-600 border-opacity-25">
+                <h4 className="text-md font-medium text-slate-600 pb-1">
+                  9 GCSEs (including Maths, English and Science)
+                </h4>
+                <p className="text-slate-600 mt-2 text-sm">
+                  English Literature (A), English Language (B), Maths (C),
+                  Science (C / C), French (D), Geography (B), History (E) & Food
+                  Technology (A)
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section className="w-full max-w-3xl mb-8">
             <h2 className="text-3xl font-bold mb-6 text-slate-600">
               Technology & Tools
             </h2>
             <div className="flex flex-wrap gap-3">
               {technologiesData
-                .slice() // Create a shallow copy to avoid mutating the original array
-                .sort((a, b) => a.localeCompare(b)) // Sort alphabetically (A - Z)
+                .slice()
+                .sort((a, b) => a.localeCompare(b))
                 .map((tech, index) => (
                   <span
                     key={index}
@@ -132,21 +162,16 @@ export default function ExperiencePage() {
             </div>
           </section>
 
-          <section className="w-full max-w-5xl mb-8">
+          <section className="w-full max-w-3xl mb-8">
             <h2 className="text-3xl font-bold mb-6 text-slate-600">
               Skills & Responsibilities
             </h2>
-
-            {/* Container for two-column layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
               {skillsData.map((skillsCategory, index) => (
                 <div key={index} className="flex flex-col h-full">
-                  {/* Category Header */}
                   <h3 className="text-xl font-bold text-teal-500 mb-4">
                     {skillsCategory.category}
                   </h3>
-
-                  {/* Skills List */}
                   <ul className="list-disc list-aligned space-y-2 pl-4">
                     {skillsCategory.skills.map((skill, skillIndex) => (
                       <li key={skillIndex} className="text-slate-600 text-sm">
@@ -159,33 +184,34 @@ export default function ExperiencePage() {
             </div>
           </section>
 
-          {/* Featured Portfolio Items */}
-          <section className="w-full max-w-3xl">
-            <h2 className="text-3xl font-bold mb-6 text-slate-600">
-              Featured Portfolio Items
+          <section className="w-full max-w-5xl">
+            <h2 className="text-3xl font-bold mb-8 text-slate-600">
+              Recent Projects
             </h2>
-
             <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 w-full">
-              {featuredPortfolioItemsData.map((project) => (
+              {recentProjectData.map((project) => (
                 <div
                   key={project.id}
                   className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
                 >
-                  <Link href={`/portfolio/${project.slug}`}>
-                    {/* Thumbnail */}
-                    <Image
-                      src={project.thumbnail}
-                      alt={project.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-48 object-cover"
-                    />
-                    {/* Card Content */}
+                  <Link href={`/projects/${project.slug}`}>
+                    <div className={`w-full h-48 ${project.color}`}>
+                      <Image
+                        src={project.thumbnail}
+                        alt={project.title}
+                        width={300}
+                        height={200}
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
                     <div className="p-4">
-                      <h3 className="text-xl font-bold text-blue-600 hover:underline">
+                      <h3
+                        className={`text-xl font-bold pt-2 ${project.textColor}`}
+                      >
                         {project.title}
                       </h3>
-                      <p className="text-gray-700 mt-2 text-sm">
+
+                      <p className="text-slate-600 mt-2 text-sm">
                         {project.description}
                       </p>
                     </div>

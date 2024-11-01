@@ -5,7 +5,7 @@ import Nav from "./Nav";
 
 export default function Header() {
   return (
-    <header className="p-8 sm:p-8 shadow-md bg-white-900">
+    <header className="p-8 sm:p-8 shadow-md bg-white">
       <div className="container mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center w-full max-w-5xl">
         {/* Name and Image */}
         <div id="me" className="flex items-center space-x-4 mb-8 sm:mb-0">
@@ -22,7 +22,7 @@ export default function Header() {
           >
             {/* Display full name on larger screens, short name on small screens */}
             <span className="hidden sm:inline">Dan Humpherson</span>
-            <span className="sm:hidden">Dan Humpherson</span>
+            <span className="sm:hidden">Dan H.</span>
           </Link>
         </div>
 

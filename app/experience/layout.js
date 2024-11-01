@@ -2,7 +2,7 @@
 
 export const metadata = {
   title: "Experience | Dan Humpherson",
-  description: "Work experience.",
+  description: "View my work experience and CV.",
 };
 
 export default function ExperienceLayout({ children }) {

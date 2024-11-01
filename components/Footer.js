@@ -1,48 +1,50 @@
 // components/layout/Footer.js
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="p-8 bg-gray-900 text-gray-400">
+    <footer className="p-8 bg-gray-900 text-white">
       <div className="container mx-auto flex justify-between mb-4 mt-4">
         <Link href="/" className="text-xl font-bold">
           Dan Humpherson
         </Link>
       </div>
       <div className="container mx-auto flex justify-between">
-        <nav className="flex space-x-6 text-sm mb-4 sm:mb-4 pt-4">
-          <a
-            href="https://www.linkedin.com/in/your-profile" // Replace with your LinkedIn profile link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-500 hover:text-white"
-            title="LinkedIn - Dan Humpherson"
-          >
-            <FaLinkedin size={20} />
-          </a>
-          <span className="mx-2 text-gray-500">|</span>
+        <nav className="flex space-x-6 text-sm mb-8 sm:mb-12 pt-4">
           <Link href="/" className="hover:text-white">
             Home
           </Link>
-          <Link href="/experience" className="hover:text-white">
+          <Link href="/experience" className="hover:text-gray-500">
             Experience
           </Link>
-          <Link href="/portfolio" className="hover:text-white">
-            Portfolio
+          <Link href="/projects" className="hover:text-gray-500">
+            Projects
           </Link>
-          <Link href="/blog" className="hover:text-white">
+          <Link href="/blog" className="hover:text-gray-500">
             Blog
           </Link>
+          <span className="mx-2 text-gray-500">|</span>
+          <a
+            href="http://www.linkedin.com/in/dhumpherson"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-500"
+            title="Dan Humpherson - LinkedIn Profile"
+          >
+            <FaLinkedin size={20} />
+          </a>
+          <a
+            href="https://github.com/humpherson"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-500"
+            title="Dan Humpherson - GitHub"
+          >
+            <FaGithub size={20} />
+          </a>
         </nav>
-        <a
-          href="https://www.linkedin.com/in/your-profile" // Replace with your LinkedIn profile link
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 hover:text-white"
-        >
-          <FaLinkedin size={20} />
-        </a>
       </div>
       <div className="container mx-auto flex justify-between pt-4 pb-4">
         {/* Copyright Notice */}
