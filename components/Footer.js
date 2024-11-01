@@ -1,53 +1,28 @@
 // components/layout/Footer.js
 import Link from "next/link";
+import Nav from "./Nav";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="p-8 bg-gray-900 text-white">
-      <div className="container mx-auto flex justify-between mb-4 mt-4">
-        <Link href="/" className="text-xl font-bold">
-          Dan Humpherson
-        </Link>
+    <footer className="pl-8 pr-8 pt-12 pb-12 bg-gray-900 text-white">
+      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-start">
+        {/* Brand/Name Link */}
+        <div className="flex justify-start mb-6">
+          <Link href="/" className="text-xl font-bold">
+            <span>Dan Humpherson</span>
+          </Link>
+        </div>
       </div>
-      <div className="container mx-auto flex justify-between">
-        <nav className="flex space-x-6 text-sm mb-8 sm:mb-12 pt-4">
-          <Link href="/" className="hover:text-white">
-            Home
-          </Link>
-          <Link href="/experience" className="hover:text-gray-500">
-            Experience
-          </Link>
-          <Link href="/projects" className="hover:text-gray-500">
-            Projects
-          </Link>
-          <Link href="/blog" className="hover:text-gray-500">
-            Blog
-          </Link>
-          <span className="mx-2 text-gray-500">|</span>
-          <a
-            href="http://www.linkedin.com/in/dhumpherson"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-gray-500"
-            title="Dan Humpherson - LinkedIn Profile"
-          >
-            <FaLinkedin size={20} />
-          </a>
-          <a
-            href="https://github.com/humpherson"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white hover:text-gray-500"
-            title="Dan Humpherson - GitHub"
-          >
-            <FaGithub size={20} />
-          </a>
-        </nav>
+
+      {/* Navigation */}
+      <div className="max-w-5xl mx-auto w-full mt-2 mb-6 justify-start">
+        <Nav />
       </div>
-      <div className="container mx-auto flex justify-between pt-4 pb-4">
-        {/* Copyright Notice */}
+
+      {/* Copyright Notice */}
+      <div className="max-w-5xl mx-auto w-full flex justify-start pt-4">
         <p className="text-xs text-gray-500">
           © {new Date().getFullYear()} Dan Humpherson. All rights reserved.
         </p>

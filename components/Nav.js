@@ -14,6 +14,9 @@ export default function Nav() {
     { href: "/experience", label: "Experience", target: "" },
     { href: "/projects", label: "Projects", target: "" },
     { href: "/blog", label: "Blog", target: "" },
+  ];
+
+  const socialLinks = [
     {
       href: "http://www.linkedin.com/in/dhumpherson",
       label: "LinkedIn",
@@ -21,7 +24,7 @@ export default function Nav() {
       icon: <FaLinkedin size={20} />,
     },
     {
-      href: "https://github.com/your-github-username",
+      href: "https://github.com/humpherson",
       label: "GitHub",
       target: "_blank",
       icon: <FaGithub size={20} />,
@@ -29,30 +32,37 @@ export default function Nav() {
   ];
 
   return (
-    <nav className="flex space-x-4 sm:space-x-8">
-      {navLinks.map((link, index) => (
-        <div key={link.href} className="flex items-center">
-          {index === navLinks.length - 2 && (
-            <span className="mx-2 text-gray-500 pr-2 sm:pr-8">|</span>
-          )}
+    <nav className="flex flex-col sm:flex-row sm:justify-start space-y-6 sm:space-y-0 sm:space-x-8">
+      {/* Page Links */}
+      <div className="flex space-x-4 sm:space-x-8">
+        {navLinks.map((link) => (
           <Link
+            key={link.href}
             href={link.href}
-            target={link.target}
             className={`${
               pathname === link.href
                 ? "text-teal-600 border-b border-b-2 border-teal-600 font-medium hover:text-teal-600"
                 : "text-slate-500 border-b-0"
-            } hover:text-teal-600 hover:border-b hover:border-b-2 hover:border-teal-600 flex items-center`}
+            } hover:text-teal-600 hover:border-b hover:border-b-2 hover:border-teal-600`}
           >
-            {/* Display icon if available, otherwise show label */}
-            {link.icon ? (
-              <span className="mr-0">{link.icon}</span>
-            ) : (
-              <span>{link.label}</span>
-            )}
+            {link.label}
           </Link>
-        </div>
-      ))}
+        ))}
+      </div>
+      <span className="text-slate-500 hidden sm:inline">|</span>
+      {/* Social Links */}
+      <div className="flex space-x-4 sm:space-x-8">
+        {socialLinks.map((link, index) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            target={link.target}
+            className="text-slate-500 hover:text-teal-600"
+          >
+            {link.icon}
+          </Link>
+        ))}
+      </div>
     </nav>
   );
 }

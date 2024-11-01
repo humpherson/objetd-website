@@ -21,8 +21,8 @@ export default function Header() {
             className="text-xl border-b-2 border-white hover:border-teal-600 text-slate-600 font-medium hover:text-teal-600"
           >
             {/* Display full name on larger screens, short name on small screens */}
-            <span className="hidden sm:inline">Dan Humpherson</span>
-            <span className="sm:hidden">Dan H.</span>
+            <span className="hidden md:inline">Dan Humpherson</span>
+            <span className="md:hidden">Dan H.</span>
           </Link>
         </div>
 
