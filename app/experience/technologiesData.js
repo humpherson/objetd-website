@@ -3,17 +3,18 @@
 const technologiesData = [
   "React",
   "Next.js",
-  "Tailwind CSS",
   "JavaScript",
   "TypeScript",
   "HTML5",
-  "CSS3",
+  "CSS/SASS",
+  "Miro",
   "REST APIs",
   "MongoDB",
   "MySQL",
   "Git",
   "Figma",
-  "Adobe XD",
+  "Adobe",
+  "Sketch",
   "styled-components",
 ];
 
