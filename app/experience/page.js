@@ -7,6 +7,24 @@ import technologiesData from "./technologiesData";
 import recentProjectData from "./recentProjectData";
 import { FaDownload } from "react-icons/fa";
 
+export const metadata = {
+  title: "Dan Humpherson",
+  description: "Experience Design Specialist.",
+  openGraph: {
+    title: "Dan Humpherson",
+    description: "Experience Design Specialist.",
+    url: "https://objetd.co.uk",
+    images: [
+      {
+        url: "/me.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
+    type: "website",
+  },
+};
+
 export default function ExperiencePage() {
   return (
     <main>
@@ -184,7 +202,7 @@ export default function ExperiencePage() {
             </div>
           </section>
 
-          <section className="w-full max-w-5xl">
+          {/* <section className="w-full max-w-5xl">
             <h2 className="text-3xl font-bold mb-8 text-slate-600">
               Recent Projects
             </h2>
@@ -219,7 +237,7 @@ export default function ExperiencePage() {
                 </div>
               ))}
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
     </main>

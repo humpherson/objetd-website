@@ -1,65 +1,67 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaDownload } from "react-icons/fa";
-import recentProjectData from "./experience/recentProjectData";
+// app/page.js
+"use client";
 
-export const metadata = {
-  title: "Dan Humpherson",
-  description: "Experience Design Specialist.",
-  openGraph: {
-    title: "Dan Humpherson",
-    description: "Experience Design Specialist.",
-    url: "https://objetd.co.uk",
-    images: [
-      {
-        url: "/images/work-og-image.jpg",
-        width: 800,
-        height: 600,
-      },
-    ],
-    type: "website",
-  },
-};
+import { redirect } from "next/navigation";
+import Image from "next/image";
+import { FaDownload } from "react-icons/fa";
+
+// export const metadata = {
+//   title: "Dan Humpherson",
+//   description: "Experience Design Specialist.",
+//   openGraph: {
+//     title: "Dan Humpherson",
+//     description: "Experience Design Specialist.",
+//     url: "https://objetd.co.uk",
+//     images: [
+//       {
+//         url: "/images/work-og-image.jpg",
+//         width: 800,
+//         height: 600,
+//       },
+//     ],
+//     type: "website",
+//   },
+// };
 
 const brandLogos = [
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
-  "/logos/logo-capita.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
+  "/logos/logo-cloudThing.png",
 ];
 
 const employers = [
   {
     id: 1,
     name: "Company A",
-    logo: "/logos/logo-capita.png",
+    logo: "/logos/logo-cloudThing.png",
     dateRange: "Nov 2007 - Jan 2019",
     description: "Led design and development projects for enterprise clients.",
   },
   {
     id: 2,
     name: "Company B",
-    logo: "/logos/logo-capita.png",
+    logo: "/logos/logo-cloudThing.png",
     dateRange: "Feb 2019 - May 2021",
     description: "Managed UX/UI improvements for SaaS products.",
   },
   {
     id: 3,
     name: "Company C",
-    logo: "/logos/logo-capita.png",
+    logo: "/logos/logo-cloudThing.png",
     dateRange: "Jun 2021 - Aug 2022",
     description: "Collaborated on frontend solutions for e-commerce platforms.",
   },
   {
     id: 4,
     name: "Company D",
-    logo: "/logos/logo-capita.png",
+    logo: "/logos/logo-cloudThing.png",
     dateRange: "Sep 2022 - Present",
     description:
       "Led design initiatives to improve accessibility and usability.",
@@ -69,6 +71,12 @@ const employers = [
 const recentEmployers = employers.slice(-4);
 
 export default function Home() {
+  const isPageReady = false;
+
+  if (!isPageReady) {
+    redirect("/experience");
+  }
+
   return (
     <main>
       {/* Introduction Section */}
@@ -90,14 +98,14 @@ export default function Home() {
               I’m Dan Humpherson, a seasoned and affable solution leader.
             </p>
             <div className="mt-6 space-x-4">
-              <a
+              {/* <a
                 href="/documents/Dan_Humpherson_CV_Latest.pdf"
                 download
                 className="mb-4 sm:mb-0 inline-flex items-center px-5 py-3 bg-white text-slate-700 font-semibold rounded-full shadow-md hover:bg-gray-100 transition duration-200"
               >
                 <FaDownload className="mr-2" />
                 View experience
-              </a>
+              </a> */}
               <a
                 href="/documents/Dan_Humpherson_CV_Latest.pdf"
                 download

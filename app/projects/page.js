@@ -1,4 +1,7 @@
 // app/projects/page.js
+"use client";
+
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -33,6 +36,12 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+  const isPageReady = false;
+
+  if (!isPageReady) {
+    redirect("/experience");
+  }
+
   return (
     <main>
       <div className="p-8 sm:p-20 bg-teal-500 shadow-md">
